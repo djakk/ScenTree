@@ -77,10 +77,22 @@ async function generate_one_file(dom, the_current_object) {
     //the_script_to_open_the_modal_onload.text = "$(window).on('load',function(){ $('#Vidéo').hide(); $('.modal-backdrop').remove(); markofun(" + JSON.stringify(the_current_object) + ", true); });";
     //the_script_to_open_the_modal_onload.text = "markofun(" + JSON.stringify(the_current_object) + ", true);";
     if (scentree_objects.is_synthetic(the_current_object)) {
+	try {
+	(dom.window.document.getElementById("naturelleModal")).remove();
+	(dom.window.document.getElementById("DescripteurModal")).remove();
+	} catch(error) {};
     	the_script_to_open_the_modal_onload.text = "$(window).on('load',function(){ $('#SynthetiqueModal').modal('show'); });";
-    } else if (scentree_objects.is_natural(the_current_object)) { 
+    } else if (scentree_objects.is_natural(the_current_object)) {
+	try {
+	(dom.window.document.getElementById("SynthetiqueModal")).remove();
+	(dom.window.document.getElementById("DescripteurModal")).remove();
+	} catch(error) {};
 	the_script_to_open_the_modal_onload.text = "$(window).on('load',function(){ $('#naturelleModal').modal('show'); });";
     } else {
+	try {
+	(dom.window.document.getElementById("naturelleModal")).remove();
+	(dom.window.document.getElementById("SynthetiqueModal")).remove();
+	} catch(error) {};
 	the_script_to_open_the_modal_onload.text = "$(window).on('load',function(){ $('#DescripteurModal').modal('show'); });";
     };
     dom.window.document.body.appendChild(the_script_to_open_the_modal_onload);

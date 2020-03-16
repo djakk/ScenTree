@@ -604,22 +604,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var is_an_descripteur = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Descripteur");
 
 
-    // removed unused modals when generating pages 
-    if (! show_the_modal) {
-	if (is_an_naturelle) {
-	    $("#SynthetiqueModal").remove();
-	    $('#DescripteurModal').remove();
-	};
-	if (is_an_synthetique) {
-	    $("#naturelleModal").remove();
-	    $('#DescripteurModal').remove();
-	};
-	if (is_an_descripteur) {
-	    $("#SynthetiqueModal").remove();
-	    $('#naturelleModal').remove();
-	};
-    };
-
     // IFRA
     show_the_main_48th_IFRA_table = false;
     show_the_main_49th_IFRA_table = false;
